@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Collegue } from '../models/Collegue';
-import { collegueMock, obama } from '../mock/collegues.mock';
-
 
 @Component({
   selector: 'app-collegue',
@@ -15,12 +13,12 @@ export class CollegueComponent implements OnInit {
   quandOnCree(){
     console.log("Création d'un nouveau collègue")
   }
-
+  
   quandOnModifi(){
     console.log("Modification du collègue")
   }
   
   ngOnInit() {
-
+  
   }
 }
