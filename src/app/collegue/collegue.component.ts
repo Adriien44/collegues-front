@@ -12,6 +12,13 @@ export class CollegueComponent implements OnInit {
 
 @Input() col:Collegue; 
 
+  quandOnCree(){
+    console.log("Création d'un nouveau collègue")
+  }
+
+  quandOnModifi(){
+    console.log("Modification du collègue")
+  }
   
   ngOnInit() {
 

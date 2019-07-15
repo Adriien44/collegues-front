@@ -13,8 +13,12 @@
                         <p>Date de naissance : {{col.dateDeNaissance}}</p>
                         <p>Email : {{col.email}}</p>
                     </div>
-                    <p><a href="" target="_blank">Créer un nouveau collègue</a></p>
-                    <a href="#" class="btn btn-primary mt-3">Modifier</a>
+                    
+                    <button (click)="quandOnModifi()" class="btn btn-primary mt-3">Modifier</button>
+                    <hr>
+                    <button (click)="quandOnCree()" class="btn btn-link">Créer un nouveau collègue</button>
+                    <hr>
+                    
                 </div>
             </div>
         </div>
