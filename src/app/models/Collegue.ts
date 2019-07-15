@@ -1,10 +1,5 @@
 import {Component, Input} from '@angular/core';
 
-@Component({
-    selector: 'collegue',
-    template: ''
-})
-
 export class Collegue {
 
     matricule : string; 
