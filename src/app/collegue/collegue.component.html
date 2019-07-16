@@ -5,18 +5,22 @@
         <div class="col-4">
             <div class="card">
                 <div class="card-body">
+                    <div class="d-flex justify-content-center">
                     <img src="{{col.photoUrl}}" class="pr-3 mb-3" width="180" height="200" alt="Barack Obama">
-                    <div class="card-text">
-                        <p>Matricule : {{col.matricule}}</p>
+                </div>
+                    <div class="card-text text-center">
+                        <p >Matricule : {{col.matricule}}</p>
                         <p>Nom : {{col.nom}}</p>
                         <p>Prénoms : {{col.prenoms}}</p>
                         <p>Date de naissance : {{col.dateDeNaissance}}</p>
                         <p>Email : {{col.email}}</p>
                     </div>
-                    
+                    <div class="d-flex justify-content-center">
                     <button (click)="quandOnModifi()" class="btn btn-primary mt-3">Modifier</button>
+                    </div>
                     <hr>
-                    <button (click)="quandOnCree()" class="btn btn-link">Créer un nouveau collègue</button>
+                    <div class="d-flex justify-content-center">
+                    <button (click)="quandOnCree()" class="btn btn-link">Créer un nouveau collègue</button></div>
                     <hr>
                     
                 </div>
