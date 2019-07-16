@@ -1,4 +1,3 @@
-
 <!--CARTE-->
 <div class="container">
     <div class="row">
@@ -6,23 +5,32 @@
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-center">
-                    <img src="{{col.photoUrl}}" class="pr-3 mb-3" width="180" height="200" alt="Barack Obama">
-                </div>
+                        <img *ngIf="modification==false" src="{{col.photoUrl}}" class="pr-3 mb-3" width="180" height="200" alt="Barack Obama">
+                        <img *ngIf="modification==true" src="http://www1.pictures.zimbio.com/gi/Barack+Obama+President+Obama+Highlights+Innovative+eAwp6sip-Uzl.jpg" class="pr-3 mb-3" width="250" height="170" alt="Barack Obama">
+
+                    </div>
                     <div class="card-text text-center">
-                        <p >Matricule : {{col.matricule}}</p>
-                        <p>Nom : {{col.nom}}</p>
+                        <p>Matricule : {{col.matricule}}</p>
+                        <p>Nom : {{col.nom | uppercase}}</p>
                         <p>Prénoms : {{col.prenoms}}</p>
-                        <p>Date de naissance : {{col.dateDeNaissance}}</p>
-                        <p>Email : {{col.email}}</p>
+                        <p>Date de naissance : {{col.dateDeNaissance | date:'dd/MM/yyyy'}}</p>
+                        <form><p>Email : <span *ngIf="modification==false">{{col.email}}</span>
+                            <span *ngIf="modification == true"><input class="text" /></span></p></form>
+                        <div *ngIf="modification == true">
+                            <p>PhotoURL : <input class="text" /></p>
+                        </div>
                     </div>
                     <div class="d-flex justify-content-center">
-                    <button (click)="quandOnModifi()" class="btn btn-primary mt-3">Modifier</button>
+                        <button *ngIf="modification == false" (click)="quandOnModifi()" class="btn btn-primary mt-3">Modifier</button>
+                        <button *ngIf="modification == true" (click)="quandOnValide()" class="btn btn-primary mt-3">Valider</button>
                     </div>
-                    <hr>
-                    <div class="d-flex justify-content-center">
-                    <button (click)="quandOnCree()" class="btn btn-link">Créer un nouveau collègue</button></div>
-                    <hr>
-                    
+                    <div *ngIf="modification==false">
+                        <hr>
+                        <div class="d-flex justify-content-center">
+                            <button (click)="quandOnCree()" class="btn btn-link">Créer un nouveau collègue</button>
+                            </div>
+                        <hr>
+                    </div>
                 </div>
             </div>
         </div>
