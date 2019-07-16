@@ -1,1 +1,20 @@
-<p>recherche-par-nom works!</p>
+<div class="container-fluide">
+    <div class="row align-items-center">
+        <div class="col-3">
+            <form>
+                <label class="ml-2">Recherche par nom : </label>
+            </form>
+        </div>
+        <div class="col">
+            <input type="search" class="form-control" id="searchName" placeholder="Rechercher">
+        </div>
+        <div class="col">
+            <button type="submit" class="btn btn-primary" (click)="retourneListeNom()">Rechercher</button>
+        </div>
+    </div>
+
+    <div>
+        <ul>
+            <li *ngFor="let obj of matriculeT">{{obj.matri}}</li>
+        </ul>
+    </div>

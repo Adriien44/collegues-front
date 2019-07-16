@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-recherche-par-nom',
@@ -6,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RechercheParNomComponent implements OnInit {
 
-  constructor() { }
+  matriculeT : any [];  
 
-  ngOnInit() {
+  constructor(private _rechNom:DataService){
   }
+  
+  retourneListeNom(nom:string){
+    this.matriculeT = this._rechNom.rechercherParNom(nom); 
+  }
+
+  ngOnInit() {}
 
 }
