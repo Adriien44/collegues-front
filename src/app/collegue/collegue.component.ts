@@ -11,8 +11,7 @@ export class CollegueComponent implements OnInit {
 
 col:Collegue; 
 
-constructor(private _rechColl:DataService){
-this.col = this._rechColl.recupererCollegueCourant(); 
+constructor(private _rechColl:DataService){ 
 }
 
 modification:boolean = false; 

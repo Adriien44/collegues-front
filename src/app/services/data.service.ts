@@ -33,7 +33,7 @@ export class DataService {
 
   getMatricule(nom: string): Observable<string[]> {
     return this.httpClient
-      .get<string[]>(environment.backendUrl+`?nom=${nom.trim()}`)
+      .get<string[]>(environment.backendUrl+`?nom=${nom}`)
   }
 
 getCollegue (unMatricule){

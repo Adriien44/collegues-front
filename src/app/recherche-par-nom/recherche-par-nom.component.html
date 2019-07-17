@@ -6,7 +6,7 @@
             </form>
         </div>
         <div class="col">
-            <input type="search" class="form-control" id="searchName" #saisie placeholder="Rechercher">
+            <input type="search" class="form-control" id="searchName" #saisie placeholder="Rosso">
         </div>
         <div class="col">
             <button type="submit" class="btn btn-primary" (click)="retourneMatricule(saisie.value)">Rechercher</button>
@@ -15,6 +15,6 @@
 
     <div class="mt-4">
         <ul>
-            <li *ngFor="let obj of matriculeT"><button type="button" class="btn btn-outline-secondary" (click)="sendMatricule(obj)">{{obj}}</button></li>
+            <li *ngFor="let obj of matriculeT"><button type="button" class="btn btn-outline-secondary mt-2" (click)="sendMatricule(obj)">{{obj}}</button></li>
         </ul>
     </div>
