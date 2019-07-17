@@ -15,9 +15,9 @@
                         <p>Prénoms : {{col.prenom}}</p>
                         <p>Date de naissance : {{col.dateDeNaissance | date:'dd/MM/yyyy'}}</p>
                         <form><p>Email : <span *ngIf="modification==false">{{col.email}}</span>
-                            <span *ngIf="modification"><input type="text" /></span></p></form>
+                            <span *ngIf="modification"><input type="text" value="{{col.email}}"/></span></p></form>
                         <div *ngIf="modification">
-                            <p>PhotoURL : <input type="text" /></p>
+                            <p>PhotoURL : <input type="text" value="{{col.photoUrl}}" /></p>
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
