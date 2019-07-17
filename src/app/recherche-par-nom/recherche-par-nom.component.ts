@@ -26,4 +26,6 @@ export class RechercheParNomComponent implements OnInit {
   }
   ngOnInit() {
   }
+
+ 
 }
