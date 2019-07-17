@@ -6,15 +6,15 @@
             </form>
         </div>
         <div class="col">
-            <input type="search" class="form-control" id="searchName" placeholder="Rechercher">
+            <input type="search" class="form-control" id="searchName" #saisie placeholder="Rechercher">
         </div>
         <div class="col">
-            <button type="submit" class="btn btn-primary" (click)="retourneListeNom('lol')">Rechercher</button>
+            <button type="submit" class="btn btn-primary" (click)="retourneMatricule(saisie.value)">Rechercher</button>
         </div>
     </div>
 
-    <div>
+    <div class="mt-4">
         <ul>
-            <li *ngFor="let obj of matriculeT">{{obj.matri}}</li>
+            <li *ngFor="let obj of matriculeT"><button type="button" class="btn btn-outline-secondary" (click)="sendMatricule(obj)">{{obj}}</button></li>
         </ul>
     </div>

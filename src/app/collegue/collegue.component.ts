@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Collegue } from '../models/Collegue';
 import { DataService } from '../services/data.service';
 
@@ -17,6 +17,7 @@ this.col = this._rechColl.recupererCollegueCourant();
 
 modification:boolean = false; 
 
+
   quandOnCree(){
     console.log("Création d'un nouveau collègue")
   }
@@ -30,8 +31,7 @@ modification:boolean = false;
     this.modification = false; 
   }
 
-  
   ngOnInit() {
-  
+    this._rechColl.abonnement().subscribe(leMatricule =>(this._rechColl.getCollegue(leMatricule).subscribe(leCollegue => (this.col = leCollegue)))); 
   }
 }

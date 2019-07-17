@@ -12,7 +12,7 @@
                     <div class="card-text text-center">
                         <p>Matricule : {{col.matricule}}</p>
                         <p>Nom : {{col.nom | uppercase}}</p>
-                        <p>Prénoms : {{col.prenoms}}</p>
+                        <p>Prénoms : {{col.prenom}}</p>
                         <p>Date de naissance : {{col.dateDeNaissance | date:'dd/MM/yyyy'}}</p>
                         <form><p>Email : <span *ngIf="modification==false">{{col.email}}</span>
                             <span *ngIf="modification"><input class="text" /></span></p></form>

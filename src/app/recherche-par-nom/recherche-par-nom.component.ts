@@ -7,15 +7,18 @@ import { DataService } from '../services/data.service';
 })
 export class RechercheParNomComponent implements OnInit {
 
-  matriculeT : any [];  
+  matriculeT : string [];  
 
   constructor(private _rechNom:DataService){
   }
   
-  retourneListeNom(nom:string){
-    this.matriculeT = this._rechNom.rechercherParNom(nom); 
+  retourneMatricule(nom:string){
+    return this._rechNom.getMatricule(nom).subscribe(tableauMatricule=> (this.matriculeT = tableauMatricule)); 
   }
-
-  ngOnInit() {}
+  sendMatricule(unMatricule:string){
+    this._rechNom.publier(unMatricule)
+  }
+  ngOnInit() {
+  }
 
 }
