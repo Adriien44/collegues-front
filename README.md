@@ -29,3 +29,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## URL site internet  
 https://adriien44.github.io/collegues-front/
+(l'application prend quelques secondes pour afficher le collègue lors de sa 1e utilisation. Soyez patient :-) "
