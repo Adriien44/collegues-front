@@ -8,24 +8,34 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class RechercheParNomComponent implements OnInit {
 
-  matriculeT : string [];  
+  matriculeT: string[];
+  erreur: boolean = false;
+  erreurCollegue: boolean = false;
+  msgError: string;
 
-  constructor(private _rechNom:DataService){
-  }
-  
-  retourneMatricule(nom:string){
-    return this._rechNom.getMatricule(nom).subscribe(tableauMatricule=>{
-      (this.matriculeT = tableauMatricule)
-    }, 
-    (error : HttpErrorResponse) => { console.log("Code erreur " + error.status + " - Serveur déconnecté")}
-    );
+  constructor(private _rechNom: DataService) {
   }
 
-  sendMatricule(unMatricule:string){
+  retourneMatricule(nom: string) {
+    if (nom != "") {
+      return this._rechNom.getMatricule(nom).subscribe
+        (tableauMatricule => {
+          if (tableauMatricule.length == 0) {
+            this.erreurCollegue = true;
+          } else {
+            (this.matriculeT = tableauMatricule, this.erreurCollegue = false)
+          }
+        },
+          (respError: HttpErrorResponse) => { this.erreur = true, this.msgError = "Oups... Serveur déconnecté" }
+        );
+    }
+  }
+
+  sendMatricule(unMatricule: string) {
     this._rechNom.publier(unMatricule)
   }
   ngOnInit() {
   }
 
- 
+
 }

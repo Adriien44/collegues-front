@@ -1,20 +1,51 @@
 <div class="container-fluide">
-    <div class="row align-items-center">
-        <div class="col-3">
-            <form>
-                <label class="ml-2">Recherche par nom : </label>
-            </form>
+    <!--MENU RECHERCHE-->
+        <div class="row align-items-center">
+            <!--INTITULÉ-->
+            <div class="col-3">
+                <form>
+                    <label class="ml-2">Recherche par nom : </label>
+                </form>
+            </div>
+            <!--CHAMP DE RECHERCHE-->
+            <div class="col">
+                <form>
+                    <input type="search" class="form-control" id="searchName" #saisie
+                        placeholder="Rosso / Camus / Diolo / Moche">
+                </form>
+            </div>
+            <!--BOUTON RECHERCHE-->
+            <div class="col">
+                <form>
+                    <button type="submit" class="btn btn-primary"
+                        (click)="retourneMatricule(saisie.value)">Rechercher</button>
+                </form>
+            </div>
         </div>
-        <div class="col">
-            <input type="search" class="form-control" id="searchName" #saisie placeholder="Rosso">
-        </div>
-        <div class="col">
-            <button type="submit" class="btn btn-primary" (click)="retourneMatricule(saisie.value)">Rechercher</button>
-        </div>
-    </div>
 
-    <div class="mt-4">
-        <div *ngFor="let obj of matriculeT">
-            <button type="button" class="btn btn-outline-secondary mt-2" (click)="sendMatricule(obj)">{{obj}}</button>
+    <!--ERREURS ET LISTE-->
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col">
+                <!--ERREUR COLLÈGUE NON TROUVÉ-->
+                <div *ngIf="erreurCollegue == true" class="justify-content-center mt-3">
+                    <span class="bg-danger text-white rounded-lg p-1 text-center w-25">Erreur, collègue non trouvé</span>
+                </div>
+                <!--ERREUR SERVEUR-->
+                <div *ngIf="erreur == true" class="justify-content-center mt-3">
+                    <span class="bg-danger text-white rounded-lg p-1 text-center w-25"> {{msgError}}</span>
+                </div>
+            </div>
+            <div class="col">
+            </div>
         </div>
-    </div>
+
+    <!--LISTING DES MATRICULES COLLÈGUES-->
+        <div class="mt-4">
+            <div *ngFor="let obj of matriculeT">
+                <form>
+                    <button type="button" class="btn btn-outline-secondary mt-2"
+                        (click)="sendMatricule(obj)">{{obj}}</button>
+                </form>
+            </div>
+        </div>
