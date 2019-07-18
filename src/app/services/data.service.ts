@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Collegue } from '../models/Collegue';
-import { Observable, of, Subject } from 'rxjs';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { Observable, Subject } from 'rxjs';
+import { HttpClient} from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -36,5 +36,10 @@ export class DataService {
   modifierCollegue(unMatricule: string, collegue: Collegue) {
     return this.httpClient
       .patch<Collegue>(environment.backendUrl + `/${unMatricule}`, collegue);
+  }
+
+  ajouterCollegue (collegue: Collegue){
+    return this.httpClient
+    .post<Collegue>(environment.backendUrl, collegue);
   }
 }

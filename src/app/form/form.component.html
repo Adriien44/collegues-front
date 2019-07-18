@@ -9,17 +9,43 @@
                             height="200" alt="Photo du collègue">
 
                     </div>
-                    <!-- INFOS DE LA CARTE-->
+                    <!-- ÉLÉMENTS À AJOUTER-->
                     <div>
-                        <form>
+                        <form (ngSubmit)="ajouter()" #ajoutCollegue="ngForm">
                             <div class="card-text text-center">
-                                <p>Matricule : </p>
-                                <p>Nom : </p>
-                                <p>Prénoms : </p>
-                                <p>Date de naissance : </p>
-                                <p>Email : </p>
-
+                                <p>Nom : <input type="text" name="name" class="form-control w50"
+                                        [(ngModel)]="collegue.nom" #name="ngModel" required /></p>
+                                <p *ngIf="name.dirty && name.invalid"><span
+                                        class="bg-danger text-white rounded-lg p-1 mt-1"> Votre Nom est invalide</span>
+                                </p>
+                                <p>Prénom : <input type="text" name="firstName" class="form-control w50"
+                                        [(ngModel)]="collegue.prenom" #firstName="ngModel" required /></p>
+                                <p *ngIf="firstName.dirty && firstName.invalid"><span
+                                        class="bg-danger text-white rounded-lg p-1 mt-1"> Votre Prénom est
+                                        invalide</span></p>
+                                <p>Date de naissance : <input type="date" name="date" class="form-control w50"
+                                        [(ngModel)]="collegue.dateDeNaissance" #date="ngModel" required /></p>
+                                <p *ngIf="date.dirty && date.invalid"><span
+                                        class="bg-danger text-white rounded-lg p-1 mt-1"> Votre Date de naissance est
+                                        invalide</span></p>
+                                <p>Email : <input type="text" name="email" class="form-control w50"
+                                        [(ngModel)]="collegue.email" #email="ngModel" required /></p>
+                                <p *ngIf="email.dirty && email.invalid"><span
+                                        class="bg-danger text-white rounded-lg p-1 mt-1"> Votre Email est
+                                        invalide</span></p>
+                                <p>PhotoURL : <input type="text" name="photoUrl" class="form-control w50"
+                                        [(ngModel)]="collegue.photoUrl" #photoUrl="ngModel" required minlength="7" />
+                                </p>
+                                <p *ngIf="photoUrl.dirty && photoUrl.invalid"><span
+                                        class="bg-danger text-white rounded-lg p-1 mt-1"> Votre Photo est
+                                        invalide</span></p>
                             </div>
+
+                            <!-- BOUTON -->
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary mt-3">Valider</button>
+                            </div>
+                            <div *ngIf="erreur == true" class="mt-3"><p class="bg-danger text-white rounded-lg p-1 mt-4 text-center">{{msgError}}</p></div>
                         </form>
                     </div>
                 </div>

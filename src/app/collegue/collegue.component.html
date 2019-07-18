@@ -1,73 +1,80 @@
-<!--CARTE-->
-<div class="container-fluide" *ngIf="col != undefined">
-    <div class="row">
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <div class="d-flex justify-content-center">
-                        <img *ngIf="modification==false" src="{{col.photoUrl}}" class="pr-3 mb-3" width="180"
-                            height="200" alt="Photo du collègue">
-                        <img *ngIf="modification" src="https://static.thenounproject.com/png/770826-200.png"
-                            class="pr-3 mb-3" width="200" height="200" alt="Photo du collègue">
+<!--CARTE AFFICHER-->
+<div *ngIf="creation == false">
+    <div class="container-fluide" *ngIf="col != undefined">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-center">
+                            <img *ngIf="modification==false" src="{{col.photoUrl}}" class="pr-3 mb-3" width="180"
+                                height="200" alt="Photo du collègue">
+                            <img *ngIf="modification" src="https://static.thenounproject.com/png/770826-200.png"
+                                class="pr-3 mb-3" width="200" height="200" alt="Photo du collègue">
 
-                    </div>
-                    <!-- INFOS DE LA CARTE-->
-                    <div>
-                        <form (ngSubmit)="validation()" #collegueModifier="ngForm">
-                            <div class="card-text text-center">
-                                <p>Matricule : {{col.matricule}}</p>
-                                <p>Nom : {{col.nom | uppercase}}</p>
-                                <p>Prénoms : {{col.prenom}}</p>
-                                <p>Date de naissance : {{col.dateDeNaissance | date:'dd/MM/yyyy'}}</p>
+                        </div>
+                        <!-- INFOS DE LA CARTE-->
+                        <div>
+                            <form (ngSubmit)="validation()" #collegueModifier="ngForm">
+                                <div class="card-text text-center">
+                                    <p>Matricule : {{col.matricule}}</p>
+                                    <p>Nom : {{col.nom | uppercase}}</p>
+                                    <p>Prénom : {{col.prenom}}</p>
+                                    <p>Date de naissance : {{col.dateDeNaissance | date:'dd/MM/yyyy'}}</p>
 
-                            <!--EMAIL STANDARD-->
-                                <div *ngIf="modification == false">
-                                    <p>Email : <span *ngIf="modification==false">{{col.email}}</span></p>
-                                </div>
+                                <!--EMAIL STANDARD-->
+                                    <div *ngIf="modification == false">
+                                        <p>Email : <span *ngIf="modification==false">{{col.email}}</span></p>
+                                    </div>
 
-                            <!--EMAIL ET PHOTO EN MODIFICATION-->
+                                <!--EMAIL ET PHOTO EN MODIFICATION-->
 
-                                <!--EMAIL-->
-                                <div *ngIf="modification">
-                                    <p>Email : <input type="text" [(ngModel)]="col.email" name="emailCol"
-                                            #emailCol="ngModel" value="{{col.email}}" required /></p>
-                                    <p *ngIf="emailCol.invalid"><span class="bg-danger text-white rounded-lg p-1 mt-1"> Votre Email est invalide</span></p>
-                                </div>
+                                    <!--EMAIL-->
+                                    <div *ngIf="modification">
+                                        <p>Email : <input type="text" [(ngModel)]="col.email" name="emailCol"
+                                                #emailCol="ngModel" value="{{col.email}}" required /></p>
+                                        <p *ngIf="emailCol.invalid"><span class="bg-danger text-white rounded-lg p-1 mt-1"> Votre Email est invalide</span></p>
+                                    </div>
 
-                                <!--PHOTO-URL-->
-                                <div *ngIf="modification">
-                                    <p>PhotoURL : <input type="text" name="urlPhoto" [(ngModel)]="col.photoUrl"
-                                            #urlPhoto="ngModel" value="{{col.photoUrl}}" required minlength="7" /></p>
-                                    <p *ngIf="urlPhoto.invalid"><span class="bg-danger text-white rounded-lg p-1 mt-1">Votre photo est invalide</span></p>
-                                </div>
-                                </div>
+                                    <!--PHOTO-URL-->
+                                    <div *ngIf="modification">
+                                        <p>PhotoURL : <input type="text" name="urlPhoto" [(ngModel)]="col.photoUrl"
+                                                #urlPhoto="ngModel" value="{{col.photoUrl}}" required minlength="7" /></p>
+                                        <p *ngIf="urlPhoto.invalid"><span class="bg-danger text-white rounded-lg p-1 mt-1">Votre photo est invalide</span></p>
+                                    </div>
+                                    </div>
 
-                            <!-- BOUTON MODIFIER/VALIDER-->
-                            <div class="d-flex justify-content-center">
-
-                                <!--MODIFIER-->
-                                <button type="button" *ngIf="modification == false" (click)="quandOnModifi()"
-                                    class="btn btn-primary mt-3">Modifier</button>
-                                <!--VALIDER-->
-                                <button type="submit" *ngIf="modification" [disabled]="collegueModifier.invalid"
-                                    class="btn btn-primary mt-3">Valider</button>
-
-                            </div>
-
-                            <div *ngIf="erreur == true" class="mt-3"><p class="bg-danger text-white rounded-lg p-1 mt-4 text-center">{{msgError}}</p></div>
-
-                            <!-- BOUTON CRÉER UN COLLÈGUE-->
-                            <div *ngIf="modification==false">
-                                <hr>
+                                <!-- BOUTON MODIFIER/VALIDER-->
                                 <div class="d-flex justify-content-center">
-                                    <button (click)="quandOnCree()" class="btn btn-link ">Créer un nouveau collègue</button>
-                                  </div>
-                                <hr>
-                            </div>
-                        </form>
+
+                                    <!--MODIFIER-->
+                                    <button type="button" *ngIf="modification == false" (click)="quandOnModifi()"
+                                        class="btn btn-primary mt-3">Modifier</button>
+                                    <!--VALIDER-->
+                                    <button type="submit" *ngIf="modification" [disabled]="collegueModifier.invalid"
+                                        class="btn btn-primary mt-3">Valider</button>
+
+                                </div>
+
+                                <div *ngIf="erreur == true" class="mt-3"><p class="bg-danger text-white rounded-lg p-1 mt-4 text-center">{{msgError}}</p></div>
+
+                                <!-- BOUTON CRÉER UN COLLÈGUE-->
+                                <div *ngIf="modification==false">
+                                    <hr>
+                                    <div class="d-flex justify-content-center">
+                                        <button (click)="quandOnCree()" class="btn btn-link ">Créer un nouveau collègue</button>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+<!-- CARTE CRÉER-->
+<div *ngIf="creation==true">
+<app-form (validerCreation)="outPutCrea($event)"></app-form>
 </div>

@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy} from '@angular/core';
 import { Collegue } from '../models/Collegue';
 import { DataService } from '../services/data.service';
 import { Subscription } from 'rxjs';
-import {FormControl} from '@angular/forms'
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
@@ -19,14 +18,14 @@ msgError:string;
 erreur:boolean = false; 
 
 
-constructor(private _rechColl:DataService){ 
-}
+constructor(private _rechColl:DataService){ }
 
 modification:boolean = false; 
-
+creation:boolean = false;
 
   quandOnCree(){
     console.log("Création d'un nouveau collègue")
+    this.creation = true; 
   }
   
   quandOnModifi(){
@@ -34,13 +33,17 @@ modification:boolean = false;
     console.log("Modification du collègue")
   }
 
-
   validation(){
     this._rechColl.modifierCollegue(this.col.matricule, this.col).subscribe(() =>{ (this.modification = false, this.erreur = false)}, 
     (respError : HttpErrorResponse) => {this.erreur = true, this.msgError = respError.error}
     );
   }
   
+  outPutCrea($event){
+    if ($event == false){
+      this.creation = false; 
+    }
+  }
 
   ngOnInit() {
   this.actionSub = this._rechColl.abonnement().subscribe(leMatricule =>(this._rechColl.getCollegue(leMatricule).subscribe(leCollegue => (this.col = leCollegue)))); 
