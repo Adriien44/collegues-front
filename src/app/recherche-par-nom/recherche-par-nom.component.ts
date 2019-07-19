@@ -13,6 +13,7 @@ export class RechercheParNomComponent implements OnInit {
   erreurCollegue: boolean = false;
   msgError: string;
 
+
   constructor(private _rechNom: DataService) {
   }
 
@@ -26,7 +27,7 @@ export class RechercheParNomComponent implements OnInit {
             (this.matriculeT = tableauMatricule, this.erreurCollegue = false)
           }
         },
-          (respError: HttpErrorResponse) => { this.erreur = true, this.msgError = "Oups... Serveur déconnecté" }
+          (respError: HttpErrorResponse) => { this.erreur = true, this.msgError = "Oups... Serveur déconnecté"}
         );
     }
   }

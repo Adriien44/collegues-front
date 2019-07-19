@@ -3,6 +3,7 @@ import { Collegue } from '../models/Collegue';
 import { Observable, Subject } from 'rxjs';
 import { HttpClient} from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { GallerieCollegue } from '../models/GallerieCollegue';
 
 @Injectable({
   providedIn: 'root'
@@ -24,13 +25,17 @@ export class DataService {
   getMatricule(nom: string): Observable<string[]> {
 
     return this.httpClient
-      .get<string[]>(environment.backendUrl + `?nom=${nom}`)
-
+      .get<string[]>(environment.backendUrl + `?nom=${nom}`);
   }
 
   getCollegue(unMatricule) {
     return this.httpClient
-      .get<Collegue>(environment.backendUrl + `/${unMatricule}`)
+      .get<Collegue>(environment.backendUrl + `/${unMatricule}`);
+  }
+
+  getPhoto(){
+    return this.httpClient
+      .get<GallerieCollegue[]>(environment.backendUrl+`/photo`);
   }
 
   modifierCollegue(unMatricule: string, collegue: Collegue) {

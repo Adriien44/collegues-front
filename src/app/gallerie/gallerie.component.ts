@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
+import { GallerieCollegue } from '../models/GallerieCollegue';
 
 @Component({
   selector: 'app-gallerie',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GallerieComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _gallerie:DataService) { }
+
+  listePhoto:GallerieCollegue[];
+
 
   ngOnInit() {
+    return this._gallerie.getPhoto().subscribe(listeCollegue => this.listePhoto = listeCollegue);
   }
 
 }

@@ -1,0 +1,15 @@
+
+    <div class="container-fluide">
+        <div class="row" >
+            <div class="col-3" *ngFor="let obj of listePhoto">
+                <div class="card m-5">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-center">
+                            <img src="{{obj.urlPhoto}}" class="pr-3 mb-3" width="200" height="220"
+                                alt="Photo du collègue">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
