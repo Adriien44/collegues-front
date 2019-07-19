@@ -35,5 +35,5 @@ https://adriien44.github.io/collegues-front/
 - Rosso
 - Diolo
 - Camus
-- Moche
+- Stabilo
 
