@@ -1,15 +1,23 @@
-
-    <div class="container-fluide">
-        <div class="row" >
-            <div class="col-3" *ngFor="let obj of listePhoto">
-                <div class="card m-5">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-center">
-                            <img src="{{obj.urlPhoto}}" class="pr-3 mb-3" width="200" height="220"
-                                alt="Photo du collègue">
-                        </div>
+<!-- LISTING PHOTOS-->
+<div class="container-fluide">
+    <div class="row">
+        <div class="col-3" *ngFor="let obj of listePhoto">
+            <div class="card m-5">
+                <div class="card-body">
+                    <div class="d-flex justify-content-center">
+                        <img src="{{obj.urlPhoto}}" class="pr-3 mb-3" width="200" height="220" alt="Photo du collègue">
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+<!--ERROR-->
+<div>
+    <div class="row justify-content-center">
+        <div *ngIf=" erreur==true">
+            <p class="text-center w-100 bg-danger text-white rounded-lg p-1 "> {{msgError}}</p>
+        </div>
+    </div>
+</div>
