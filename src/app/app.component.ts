@@ -13,3 +13,12 @@ export class AppComponent {
   collegue = obama; 
 
 }
+
+/* 
+accueil collègue recherche + affichage
+
+gallerie : voir tous les collègues // photo affichée on clique dessus et les infos du collègue s'affiche
+
+page à propos : yolo
+
+*/
