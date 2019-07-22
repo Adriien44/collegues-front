@@ -6,6 +6,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   selector: 'app-recherche-par-nom',
   templateUrl: './recherche-par-nom.component.html'
 })
+
 export class RechercheParNomComponent implements OnInit {
 
   matriculeT: string[];
@@ -17,11 +18,11 @@ export class RechercheParNomComponent implements OnInit {
   constructor(private _rechNom: DataService) {
   }
 
+  
   retourneMatricule(nom: string) {
     if (nom != "") {
       return this._rechNom.getMatricule(nom).subscribe
-        (tableauMatricule => {
-          if (tableauMatricule.length == 0) {
+        (tableauMatricule => { if (tableauMatricule.length == 0) {
             this.erreurCollegue = true;
           } else {
             (this.matriculeT = tableauMatricule, this.erreurCollegue = false)
@@ -35,6 +36,7 @@ export class RechercheParNomComponent implements OnInit {
   sendMatricule(unMatricule: string) {
     this._rechNom.publier(unMatricule)
   }
+  
   ngOnInit() {
   }
 

@@ -13,9 +13,10 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { GallerieComponent } from './gallerie/gallerie.component';
 import { AproposComponent } from './apropos/apropos.component';
 import { MenucomponentComponent } from './menucomponent/menucomponent.component';
+
 const routes: Routes = [
   { path : `accueil`, component: AccueilComponent},
-  { path : `gallerie`, component: GallerieComponent}, 
+  { path : `galerie`, component: GallerieComponent}, 
   { path : `apropos`, component: AproposComponent},
   { path: '', pathMatch: 'full', redirectTo: '/accueil' }
 ];
