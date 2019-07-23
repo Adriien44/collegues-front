@@ -28,7 +28,7 @@ export class RechercheParNomComponent implements OnInit {
             (this.matriculeT = tableauMatricule, this.erreurCollegue = false)
           }
         },
-          (respError: HttpErrorResponse) => { this.erreur = true, this.msgError = "Oups... Serveur déconnecté"}
+          (respError: HttpErrorResponse) => { this.erreur = true, this.msgError = "Oups... Vous devez vous connecter"}
         );
     }
   }

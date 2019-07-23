@@ -1,65 +1,113 @@
 <!--CARTE-->
 <div class="container-fluide">
-    <div class="row">
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <div class="d-flex justify-content-center">
-                        <img src="https://static.thenounproject.com/png/770826-200.png" class="pr-3 mb-3" width="200"
-                            height="200" alt="Photo du collègue">
+        <div class="row">
+                <div class="col">
+                        <div class="card">
+                                <div class="card-body">
+                                        <div class="d-flex justify-content-center">
+                                                <img src="https://static.thenounproject.com/png/770826-200.png"
+                                                        class="pr-3 mb-3" width="200" height="200"
+                                                        alt="Photo du collègue">
 
-                    </div>
-                    <!-- ÉLÉMENTS À AJOUTER-->
-                    <div>
-                        <form (ngSubmit)="ajouter()" #ajoutCollegue="ngForm">
-                            <div class="card-text text-center">
-                                    
-                                <!--NOM-->
-                                <p>Nom : <input type="text" name="name" class="form-control w50"
-                                        [(ngModel)]="collegue.nom" #name="ngModel" required /></p>
-                                <p *ngIf="name.dirty && name.invalid"><span
-                                        class="bg-danger text-white rounded-lg p-1 mt-1"> Votre Nom est invalide</span>
-                                </p>
+                                        </div>
+                                        <!-- ÉLÉMENTS À AJOUTER-->
+                                        <div>
+                                                <form (ngSubmit)="ajouter()" #ajoutCollegue="ngForm">
+                                                        <div class="card-text text-center">
 
-                                <!--PRÉNOM-->
-                                <p>Prénom : <input type="text" name="firstName" class="form-control w50"
-                                        [(ngModel)]="collegue.prenom" #firstName="ngModel" required /></p>
-                                <p *ngIf="firstName.dirty && firstName.invalid"><span
-                                        class="bg-danger text-white rounded-lg p-1 mt-1"> Votre Prénom est
-                                        invalide</span></p>
+                                                                <!--NOM-->
+                                                                <p>Nom : <input type="text" name="name"
+                                                                                class="form-control w50"
+                                                                                [(ngModel)]="collegue.nom"
+                                                                                #name="ngModel" required /></p>
+                                                                <p *ngIf="name.dirty && name.invalid"><span
+                                                                                class="bg-danger text-white rounded-lg p-1 mt-1">
+                                                                                Votre Nom est invalide</span>
+                                                                </p>
 
-                                <!--DATE DE NAISSANCE-->
-                                <p>Date de naissance : <input type="date" name="date" class="form-control w50"
-                                        [(ngModel)]="collegue.dateDeNaissance" #date="ngModel" required /></p>
-                                <p *ngIf="date.dirty && date.invalid"><span
-                                        class="bg-danger text-white rounded-lg p-1 mt-1"> Votre Date de naissance est
-                                        invalide</span></p>
+                                                                <!--PRÉNOM-->
+                                                                <p>Prénom : <input type="text" name="firstName"
+                                                                                class="form-control w50"
+                                                                                [(ngModel)]="collegue.prenom"
+                                                                                #firstName="ngModel" required /></p>
+                                                                <p *ngIf="firstName.dirty && firstName.invalid"><span
+                                                                                class="bg-danger text-white rounded-lg p-1 mt-1">
+                                                                                Votre Prénom est
+                                                                                invalide</span></p>
 
-                                <!-- EMAIL -->
-                                <p>Email : <input type="text" name="email" class="form-control w50"
-                                        [(ngModel)]="collegue.email" #email="ngModel" required /></p>
-                                <p *ngIf="email.dirty && email.invalid"><span
-                                        class="bg-danger text-white rounded-lg p-1 mt-1"> Votre Email est
-                                        invalide</span></p>
+                                                                <!--DATE DE NAISSANCE-->
+                                                                <p>Date de naissance : <input type="date" name="date"
+                                                                                class="form-control w50"
+                                                                                [(ngModel)]="collegue.dateDeNaissance"
+                                                                                #date="ngModel" required /></p>
+                                                                <p *ngIf="date.dirty && date.invalid"><span
+                                                                                class="bg-danger text-white rounded-lg p-1 mt-1">
+                                                                                Votre Date de naissance est
+                                                                                invalide</span></p>
 
-                                <!--PHOTO URL-->
-                                <p>PhotoURL : <input type="text" name="photoUrl" class="form-control w50"
-                                        [(ngModel)]="collegue.photoUrl" #photoUrl="ngModel" required minlength="7" />
-                                </p>
-                                <p *ngIf="photoUrl.dirty && photoUrl.invalid"><span
-                                        class="bg-danger text-white rounded-lg p-1 mt-1"> Votre Photo est
-                                        invalide</span></p>
-                            </div>
+                                                                <!-- EMAIL -->
+                                                                <p>Email : <input type="text" name="email"
+                                                                                class="form-control w50"
+                                                                                [(ngModel)]="collegue.email"
+                                                                                #email="ngModel" required /></p>
+                                                                <p *ngIf="email.dirty && email.invalid"><span
+                                                                                class="bg-danger text-white rounded-lg p-1 mt-1">
+                                                                                Votre Email est
+                                                                                invalide</span></p>
 
-                            <!-- BOUTON -->
-                            <div class="d-flex justify-content-center">
-                                <button type="submit" class="btn btn-primary mt-3">Valider</button>
-                            </div>
-                            <div *ngIf="erreur == true" class="mt-3"><p class="bg-danger text-white rounded-lg p-1 mt-4 text-center">{{msgError}}</p></div>
-                        </form>
-                    </div>
+                                                                <!--PHOTO URL-->
+                                                                <p>PhotoURL : <input type="text" name="photoUrl"
+                                                                                class="form-control w50"
+                                                                                [(ngModel)]="collegue.photoUrl"
+                                                                                #photoUrl="ngModel" required
+                                                                                minlength="7" />
+                                                                </p>
+                                                                <p *ngIf="photoUrl.dirty && photoUrl.invalid"><span
+                                                                                class="bg-danger text-white rounded-lg p-1 mt-1">
+                                                                                Votre Photo est
+                                                                                invalide</span></p>
+                                                                <!--NOM UTILISATEUR-->
+                                                                <p>Nom Utilisateur : <input type="text"
+                                                                                name="nomUtilisateur"
+                                                                                class="form-control w50"
+                                                                                [(ngModel)]="collegue.nomUtilisateur"
+                                                                                #nomUtilisateur="ngModel" required></p>
+
+                                                                <!-- MOT DE PASSE-->
+                                                                <p>Mot de Passe : <input type="text" name="motDePasse"
+                                                                                class="form-control w50"
+                                                                                [(ngModel)]="collegue.motDePasse"
+                                                                                #motDePasse="ngModel" required></p>
+
+                                                                <!--TEST RÔLE--> {{ collegue | json}}
+
+                                                                        <div class="custom-control custom-checkbox custom-control-inline">
+                                                                                        <input type="checkbox" id="administrateur" name="role" class="custom-control-input" [(ngModel)]="isAdmin"
+                                                                                        #admin="ngModel" value="ROLE_ADMIN">
+                                                                                        <label class="custom-control-label" for="administrateur" >Administrateur</label>
+                                                                                      </div>
+
+                                                                                      <div class="custom-control custom-checkbox custom-control-inline">
+                                                                                        <input type="checkbox" id="utilisateur" name="role" class="custom-control-input" [(ngModel)]="isUser" #user="ngModel" value="ROLE_USER">
+                                                                                        <label class="custom-control-label" for="utilisateur">Utilisateur</label>
+                                                                                      </div>
+                                                        </div>
+
+
+                                                        <!-- BOUTON -->
+                                                        <div class="d-flex justify-content-center">
+                                                                <button type="submit"
+                                                                        class="btn btn-primary mt-3">Valider</button>
+                                                        </div>
+                                                        <div *ngIf="erreur == true" class="mt-3">
+                                                                <p
+                                                                        class="bg-danger text-white rounded-lg p-1 mt-4 text-center">
+                                                                        {{msgError}}</p>
+                                                        </div>
+                                                </form>
+                                        </div>
+                                </div>
+                        </div>
                 </div>
-            </div>
         </div>
-    </div>
 </div>

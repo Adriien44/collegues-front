@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menucomponent',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenucomponentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _data:DataService, private router: Router) { }
+
+  deconnection(){
+    return this._data.logout().subscribe(); 
+  }
+
 
   ngOnInit() {
   }

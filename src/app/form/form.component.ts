@@ -16,17 +16,30 @@ export class FormComponent implements OnInit {
   erreur:boolean = false; 
   msgError:string; 
 
+  isAdmin = false;
+  isUser = false;
 
   constructor(private _ajoutColl:DataService) { }
 
-  collegue = new Collegue("","","","",""); 
+  collegue = new Collegue("","","","","","","",[false, false]); 
   close:boolean=false; 
 
   ngOnInit() {}
 
   ajouter(){
+    this.collegue.role = [];
+    if(this.isAdmin) {
+      this.collegue.role.push('ROLE_ADMIN');
+    }
+
+    if (this.isUser){
+      this.collegue.role.push('ROLE_USER');
+    }
+    
     this._ajoutColl.ajouterCollegue(this.collegue).subscribe(()=>{(this.validerCreation.emit(false))}, 
     (respError : HttpErrorResponse) => {this.erreur = true, this.msgError = respError.error}
     );
   }
+
+ 
 }

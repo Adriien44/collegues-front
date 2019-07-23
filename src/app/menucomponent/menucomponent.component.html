@@ -1,19 +1,42 @@
 <!--BARRE DE NAVIGATION-->
 
-<nav class="nav navbar-dark bg-primary">
-        <div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <img src="http://cdn.shopify.com/s/files/1/0770/5943/t/7/assets/logo.png?172" class="mb-1 ml-1 mr-2" width="120" height="60" alt="Logo société fictive" routerLink="/accueil">
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                    <a class="nav-link" routerLink="/accueil">Accueil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/galerie">Galerie</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/apropos">À propos</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <button class="btn btn-dark my-2 my-sm-0 mr-2" type="submit" routerLink="/connexion">Connexion</button>
+            <button class="btn btn-light my-2 my-sm-0" type="submit" (click)="deconnection()" routerLink="/connexion">Déconnexion</button>
+        </form>
+    </div>
+</nav>
+
+<!-- TITRE -->
+<header>
+    <div class="text-center mb-5 mt-5">
+        <h1>Administration Collègue</h1>
+    </div>
+</header>
+
+<!---->
+
+<!-- <div>
             <a class="navbar-brand" routerLink="/accueil">
-                <img src="https://bit.ly/2GjJdEh" class="mb-3" width="120" height="63" alt="Logo société fictive">
+                <img src="http://cdn.shopify.com/s/files/1/0770/5943/t/7/assets/logo.png?172" class="mb-3 ml-3" width="120" height="60" alt="Logo société fictive">
             </a>
             <a class="navbar-brand" routerLink="/accueil"><p>Accueil</p></a>
             <a class="navbar-brand" routerLink="/galerie"><p>Galerie</p></a>
             <a class="navbar-brand" routerLink="/apropos"><p>À propos</p></a>
-        </div>
-    </nav>
-
-<!-- TITRE -->
-<header>
-        <div class="text-center mb-5 mt-5">
-            <h1>Administration Collègue</h1>
-        </div>
-</header>
+            <a class="navbar-brand" routerLink="/connexion"><p>Connexion</p></a>
+        </div>-->

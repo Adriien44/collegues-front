@@ -25,7 +25,7 @@ export class GallerieComponent implements OnInit {
         (this.listePhoto = listeCollegue, this.erreurListe = false); 
       }
     }, 
-    (respError: HttpErrorResponse) => { this.erreur = true, this.msgError = "Oups... Serveur déconnecté"}
+    (respError: HttpErrorResponse) => { this.erreur = true, this.msgError = "Oups... Vous devez vous connecter"}
     );
   }
 }

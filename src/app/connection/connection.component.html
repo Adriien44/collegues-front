@@ -1,0 +1,29 @@
+<!--FORM CONNECTION-->
+<div class="container-fluide">
+    <div class="row">
+        <div class="col-4">
+        </div>
+        <div class="col-4">
+            <form (ngSubmit)="connexion()" #connexionCollegue="ngForm">
+                <div class="form-group">
+                    <label for="UtilisateurName">Nom d'utilisateur</label>
+                    <input type="text" class="form-control mb-3" name="user" [(ngModel)]="nomUtilisateur" #user="ngModel"
+                        placeholder="Nom d'utilisateur" required>
+                    <p *ngIf="user.dirty && user.invalid"><span class="bg-danger text-white rounded-lg p-1 mt-3"> Votre
+                            nom d'utilisateur est invalide</span></p>
+                </div>
+                <div class="form-group">
+                    <label for="motDePasse">Mot de Passe</label>
+                    <input type="password" class="form-control mb-3" name="password" [(ngModel)]="motDePasse"
+                        #password="ngModel" placeholder="Mot de Passe" required>
+                    <p *ngIf="password.dirty && password.invalid"><span class="bg-danger text-white rounded-lg p-1 mb-3"> Votre mot de passe est invalide</span></p>
+                    <div *ngIf="erreur == true"><p class="bg-danger text-white rounded-lg p-1 mb-3">Impossible de se connecter, veuillez réessayer</p></div>
+                </div>
+                <button type="submit" class="btn btn-primary">Connexion</button>
+                
+            </form>
+        </div>
+        <div class="col-4">
+        </div>
+    </div>
+</div>
